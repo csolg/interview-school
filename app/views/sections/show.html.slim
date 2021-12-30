@@ -1,0 +1,25 @@
+p#notice
+  = notice
+p
+  strong
+    | Duration:
+  = @section.duration
+p
+  strong
+    | Start at:
+  = @section.start_at
+p
+  strong
+    | Teacher:
+  = @section.teacher_id
+p
+  strong
+    | Subject:
+  = @section.subject_id
+p
+  strong
+    | Room:
+  = @section.room_id
+= link_to 'Edit', edit_section_path(@section)
+|  | 
+= link_to 'Back', sections_path

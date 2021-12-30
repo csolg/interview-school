@@ -1,0 +1,39 @@
+p#notice
+  = notice
+h1
+  | Sections
+table
+  thead
+    tr
+      th
+        | Duration
+      th
+        | Start at
+      th
+        | Teacher
+      th
+        | Subject
+      th
+        | Room
+      th[colspan="3"]
+  tbody
+    - @sections.each do |section|
+      tr
+        td
+          = section.duration
+        td
+          = section.start_at
+        td
+          = section.teacher_id
+        td
+          = section.subject_id
+        td
+          = section.room_id
+        td
+          = link_to 'Show', section
+        td
+          = link_to 'Edit', edit_section_path(section)
+        td
+          = link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Section', new_section_path

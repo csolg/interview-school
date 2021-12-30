@@ -1,0 +1,20 @@
+p#notice
+  = notice
+p
+  strong
+    | First name:
+  = @teacher.first_name
+p
+  strong
+    | Last name:
+  = @teacher.last_name
+= link_to 'Edit', edit_teacher_path(@teacher)
+|  | 
+= link_to 'Back', teachers_path
+p
+  strong
+    | Classes
+  ul
+    - @teacher.teacher_subjects.each do |teacher_subject|
+      = render 'teacher_subjects/show', teacher_subject: teacher_subject
+  = render 'teacher_subjects/new'
