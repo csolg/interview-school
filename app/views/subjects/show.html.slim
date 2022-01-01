@@ -1,20 +1,19 @@
 p#notice
   = notice
-p
-  strong
+dl.row
+  dt.col-sm-2
     | Name:
-  = @subject.name
-p
-  strong
+  dd.col-sm-10 = @subject.name
+  dt.col-sm-2
     | Description:
-  = @subject.description
-p
-  strong
+  dd.col-sm-10 = @subject.description
+  dt.col-sm-2
     | Teachers
-  ul
-    - @subject.teacher_subjects.each do |teacher_subject|
-      li
-        = link_to teacher_subject.teacher.first_and_last_name, teacher_path(teacher_subject.teacher)
+  dd.col-sm-10
+    ul
+      - @subject.teacher_subjects.each do |teacher_subject|
+        li
+          = link_to teacher_subject.teacher.first_and_last_name, teacher_path(teacher_subject.teacher)
 = link_to 'Edit', edit_subject_path(@subject)
-|  | 
+|  |
 = link_to 'Back', subjects_path

@@ -2,6 +2,7 @@ p#notice
   = notice
 h1
   | Classes
+= link_to 'New Class', new_subject_path, class: 'btn btn-primary float-end', role: 'button'
 table.table
   thead
     tr
@@ -20,7 +21,7 @@ table.table
         td
           = subject.description
         td
-          = subject.teachers.map {|teacher| teacher.first_and_last_name }.join(', ')
+          = subject.teachers.map {|teacher| link_to(teacher.first_and_last_name, teacher_path(teacher)) }.join(', ').html_safe
         td
           = link_to 'Show', subject
         td
@@ -28,4 +29,3 @@ table.table
         td
           = link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' }
 br
-= link_to 'New Class', new_subject_path
