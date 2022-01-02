@@ -1,4 +1,7 @@
 class Section < ApplicationRecord
+
+  enum repeat_type: [:everyday, :mwf, :tt], _prefix: true
+
   belongs_to :teacher
   belongs_to :subject
   belongs_to :room
