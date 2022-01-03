@@ -11,6 +11,10 @@ class Section < ApplicationRecord
 
   before_save :set_weekdays
 
+  def to_s
+    "#{teacher.name}: #{subject.name} #{start_at}-#{end_at} #{room.name}"
+  end
+
   def set_weekdays
     case repeat_type
     when 'everyday'

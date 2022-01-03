@@ -1,13 +1,21 @@
 p#notice
   = notice
-p
-  strong
+dl.row
+  dt.col-sm-2
     | First name:
-  = @student.first_name
-p
-  strong
+  dd = @student.first_name
+
+  dt.col-sm-2
     | Last name:
-  = @student.last_name
+  dd = @student.last_name
+
+  dt.col-sm-2
+    | Sections:
+  dd.col-sm-10
+    ul
+      - @student.sections.each do |section|
+        li
+          = link_to section.to_s, section_path(section)
 = link_to 'Edit', edit_student_path(@student)
-|  | 
+|  |
 = link_to 'Back', students_path

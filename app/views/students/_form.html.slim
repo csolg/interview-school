@@ -1,4 +1,4 @@
-= form_with(model: student, local: true) do |form|
+= simple_form_for(student) do |f|
   - if student.errors.any?
     #error_explanation
       h2
@@ -8,11 +8,8 @@
         - student.errors.full_messages.each do |message|
           li
             = message
-  .field
-    = form.label :first_name
-    = form.text_field :first_name
-  .field
-    = form.label :last_name
-    = form.text_field :last_name
-  .actions
-    = form.submit
+  = f.input :first_name
+  = f.input :last_name
+  = f.association :sections
+
+  = f.button :submit
