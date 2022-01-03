@@ -6,9 +6,9 @@ table.table
   thead
     tr
       th
-        | Duration
-      th
         | Start at
+      th
+        | End at
       th
         | Teacher
       th
@@ -20,9 +20,9 @@ table.table
     - @sections.each do |section|
       tr
         td
-          = section.duration
-        td
           = section.start_at
+        td
+          = section.end_at
         td
           = section.teacher_id
         td

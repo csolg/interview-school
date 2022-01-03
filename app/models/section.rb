@@ -6,5 +6,5 @@ class Section < ApplicationRecord
   belongs_to :subject
   belongs_to :room
 
-  validates :duration, :start_at, :teacher_id, :subject_id, :room_id, presence: true
+  validates :start_at, :end_at, :teacher_id, :subject_id, :room_id, presence: true
 end

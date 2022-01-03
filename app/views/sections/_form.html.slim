@@ -8,8 +8,8 @@
         - section.errors.full_messages.each do |message|
           li
             = message
-  = form.input :duration
   = form.input :start_at
+  = form.input :end_at
   = form.association :teacher
   = form.association :subject
   = form.association :room
