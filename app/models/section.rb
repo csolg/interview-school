@@ -5,6 +5,7 @@ class Section < ApplicationRecord
   belongs_to :teacher
   belongs_to :subject
   belongs_to :room
+  has_and_belongs_to_many :students, dependent: :destroy
 
   validates :start_at, :end_at, :teacher_id, :subject_id, :room_id, presence: true
 
