@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_01_123826) do
+ActiveRecord::Schema.define(version: 2022_01_03_095328) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2022_01_01_123826) do
   end
 
   create_table "sections", force: :cascade do |t|
-    t.integer "duration"
     t.string "start_at"
     t.integer "teacher_id", null: false
     t.integer "subject_id", null: false
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 2022_01_01_123826) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "repeat_type"
+    t.string "end_at"
     t.index ["room_id"], name: "index_sections_on_room_id"
     t.index ["subject_id"], name: "index_sections_on_subject_id"
     t.index ["teacher_id"], name: "index_sections_on_teacher_id"
