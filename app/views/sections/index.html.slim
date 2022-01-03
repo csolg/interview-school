@@ -6,6 +6,8 @@ table.table
   thead
     tr
       th
+        | Repeat
+      th
         | Start at
       th
         | End at
@@ -15,20 +17,31 @@ table.table
         | Subject
       th
         | Room
+      th
+        | Students
       th[colspan="3"]
   tbody
     - @sections.each do |section|
       tr
         td
+          - if section.repeat_type == 'everyday'
+            | Everyday
+          - if section.repeat_type == 'mwf'
+            | Monday, Wednesday, Friday
+          - if section.repeat_type == 'tt'
+            | Tuesday, Thursday
+        td
           = section.start_at
         td
           = section.end_at
         td
-          = section.teacher_id
+          = link_to section.teacher.name, teacher_path(section.teacher)
         td
-          = section.subject_id
+          = link_to section.subject.name, subject_path(section.subject)
         td
-          = section.room_id
+          = link_to section.room.name, room_path(section.room)
+        td
+          = section.students.map {|student| link_to(student.first_and_last_name, student_path(student)) }.join(', ').html_safe
         td
           = link_to 'Show', section
         td
